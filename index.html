@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#08101e" />
+  <meta property="og:title" content="OmniFlow Digital | Get Found. Look Professional. Grow Online." />
+  <meta property="og:description" content="We help local businesses in Trinidad &amp; Tobago get found online, look professional, and grow with websites, local visibility, design, and ongoing support." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_TT" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 74 48'%3E%3Ccircle cx='37' cy='24' r='22' fill='%23080f1c'/%3E%3Ccircle cx='37' cy='24' r='22' fill='none' stroke='%232558b0' stroke-width='2.2'/%3E%3Cpath d='M37,19 C46,13 57,16 57,25 C57,34 46,37 37,30 C28,37 17,34 17,25 C17,16 28,13 37,19Z' fill='none' stroke='%234a7fe5' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap" rel="stylesheet" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>OmniFlow Digital | Get Found. Look Professional. Grow Online.</title>
@@ -294,10 +303,79 @@
     .testimonial-avatar{width:40px;height:40px;min-width:40px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#6390ee);display:grid;place-items:center;font-weight:900;font-size:15px;color:#fff;}
     .testimonial-footer strong{display:block;font-size:14px;color:#fff;}
     .testimonial-footer span{display:block;font-size:12px;color:rgba(255,255,255,.50);margin-top:1px;}
+
+    /* Use loaded Inter font */
+    body{font-family:"Inter",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;}
+
+    /* Scroll-reveal */
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);}
+    .reveal.visible{opacity:1;transform:none;}
+    .reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);}
+    .reveal-left.visible{opacity:1;transform:none;}
+    .reveal-right{opacity:0;transform:translateX(32px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);}
+    .reveal-right.visible{opacity:1;transform:none;}
+    .reveal-d1{transition-delay:.08s;}.reveal-d2{transition-delay:.16s;}.reveal-d3{transition-delay:.24s;}.reveal-d4{transition-delay:.32s;}
+    @media(prefers-reduced-motion:reduce){.reveal,.reveal-left,.reveal-right{opacity:1!important;transform:none!important;transition:none!important;}}
+
+    /* WhatsApp float */
+    .wa-float{
+      position:fixed;bottom:28px;right:24px;z-index:200;
+      width:58px;height:58px;border-radius:50%;
+      background:#25d366;display:flex;align-items:center;justify-content:center;
+      box-shadow:0 4px 22px rgba(37,211,102,.50),0 2px 8px rgba(0,0,0,.28);
+      text-decoration:none;transition:.22s ease;
+      animation:waIn .55s cubic-bezier(.22,1,.36,1) both 1.5s;
+    }
+    @keyframes waIn{from{opacity:0;transform:scale(.4) translateY(24px)}to{opacity:1;transform:none}}
+    .wa-float:hover{transform:scale(1.12);box-shadow:0 6px 30px rgba(37,211,102,.65);}
+    .wa-float svg{width:30px;height:30px;fill:#fff;}
+    .wa-tip{
+      position:absolute;right:66px;top:50%;transform:translateY(-50%);
+      background:rgba(8,16,30,.96);color:#fff;padding:7px 13px;border-radius:10px;
+      font-size:13px;font-weight:700;white-space:nowrap;pointer-events:none;
+      opacity:0;border:1px solid rgba(37,211,102,.3);transition:.18s ease;
+      box-shadow:0 4px 18px rgba(0,0,0,.28);
+    }
+    .wa-float:hover .wa-tip,.wa-float:focus .wa-tip{opacity:1;}
+
+    /* Back to top */
+    .back-top{
+      position:fixed;bottom:98px;right:24px;z-index:200;
+      width:44px;height:44px;border-radius:50%;border:1px solid rgba(74,127,229,.38);
+      background:rgba(8,16,30,.78);backdrop-filter:blur(14px);
+      color:var(--orange2);cursor:pointer;display:none;align-items:center;justify-content:center;
+      transition:.22s ease;
+    }
+    .back-top.show{display:flex;}
+    .back-top:hover{background:rgba(74,127,229,.22);transform:translateY(-3px);}
+    .back-top svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+
+    /* Real social icons */
+    .socials a{display:grid;place-items:center;}
+    .socials svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+    .socials .fill-icon{fill:currentColor;stroke:none;}
+
+    /* WhatsApp in contact */
+    .wa-contact-btn{
+      display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:13px;
+      background:#25d366;color:#fff;font-weight:850;letter-spacing:-.01em;
+      box-shadow:0 0 14px rgba(37,211,102,.22);cursor:pointer;transition:.18s ease;text-decoration:none;
+      border:1px solid rgba(37,211,102,.4);
+    }
+    .wa-contact-btn:hover{transform:translateY(-2px);box-shadow:0 4px 22px rgba(37,211,102,.38);}
+    .wa-contact-btn svg{width:20px;height:20px;fill:#fff;}
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <a class="wa-float" href="https://wa.me/18681234567?text=Hi%20OmniFlow%20Digital%2C%20I%27m%20interested%20in%20your%20services!" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span class="wa-tip">Chat on WhatsApp</span>
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="#/home" class="brand route" data-page="home" aria-label="OmniFlow Digital home">
@@ -345,10 +423,14 @@
           </div>
           <div class="visual-system" aria-hidden="true">
             <div class="orb"><div class="orb-logo" data-logo="infinity"></div></div>
+            <div class="node n1"><span data-icon="pin"></span><strong>Get Found</strong><small>Local searches &amp; Google Maps.</small></div>
+            <div class="node n2"><span data-icon="growth"></span><strong>Grow Fast</strong><small>Results-driven digital strategy.</small></div>
+            <div class="node n4"><span data-icon="shield"></span><strong>Look Pro</strong><small>Design that earns instant trust.</small></div>
+            <div class="node n3"><span data-icon="web"></span><strong>Convert More</strong><small>Turns clicks into customer calls.</small></div>
           </div>
         </div>
       </div>
-      <div class="stats-strip container" style="max-width:100%;width:100%">
+      <div class="stats-strip container reveal" style="max-width:100%;width:100%">
         <div class="stat"><strong>50+</strong><span>Sites Built</span></div>
         <div class="stat"><strong>3 days</strong><span>Avg. Launch</span></div>
         <div class="stat"><strong>100%</strong><span>Client Retention</span></div>
@@ -356,22 +438,22 @@
       </div>
       <section class="section compact">
         <div class="container">
-          <div class="section-head"><span class="eyebrow">Our Services</span><h2>Everything You Need to <span class="accent">Grow Online</span></h2></div>
+          <div class="section-head reveal"><span class="eyebrow">Our Services</span><h2>Everything You Need to <span class="accent">Grow Online</span></h2></div>
           <div class="grid grid-4">
-            <article class="card feature-card"><span class="icon-circle" data-icon="pin"></span><h3>Pinpoint City</h3><p>Be found by local customers searching for businesses like yours in your area.</p><a class="learn route" href="#/pinpoint" data-page="pinpoint">Learn More →</a></article>
-            <article class="card feature-card"><span class="icon-circle" data-icon="web"></span><h3>Website Creation</h3><p>High-performing websites designed to look great and convert visitors into customers.</p><a class="learn route" href="#/website" data-page="website">Learn More →</a></article>
-            <article class="card feature-card"><span class="icon-circle" data-icon="pen"></span><h3>Design</h3><p>Modern, on-brand design that communicates your value and builds trust instantly.</p><a class="learn route" href="#/services" data-page="services">Learn More →</a></article>
-            <article class="card feature-card"><span class="icon-circle" data-icon="gear"></span><h3>Maintenance</h3><p>Reliable updates, backups, security, and support so your site always runs smoothly.</p><a class="learn route" href="#/maintenance" data-page="maintenance">Learn More →</a></article>
+            <article class="card feature-card reveal reveal-d1"><span class="icon-circle" data-icon="pin"></span><h3>Pinpoint City</h3><p>Be found by local customers searching for businesses like yours in your area.</p><a class="learn route" href="#/pinpoint" data-page="pinpoint">Learn More →</a></article>
+            <article class="card feature-card reveal reveal-d2"><span class="icon-circle" data-icon="web"></span><h3>Website Creation</h3><p>High-performing websites designed to look great and convert visitors into customers.</p><a class="learn route" href="#/website" data-page="website">Learn More →</a></article>
+            <article class="card feature-card reveal reveal-d3"><span class="icon-circle" data-icon="pen"></span><h3>Design</h3><p>Modern, on-brand design that communicates your value and builds trust instantly.</p><a class="learn route" href="#/services" data-page="services">Learn More →</a></article>
+            <article class="card feature-card reveal reveal-d4"><span class="icon-circle" data-icon="gear"></span><h3>Maintenance</h3><p>Reliable updates, backups, security, and support so your site always runs smoothly.</p><a class="learn route" href="#/maintenance" data-page="maintenance">Learn More →</a></article>
           </div>
           <section style="padding:48px 0 0">
-            <div class="section-head" style="margin-bottom:28px"><span class="eyebrow">What Clients Say</span><h2>Real businesses. <span class="accent">Real results.</span></h2></div>
+            <div class="section-head reveal" style="margin-bottom:28px"><span class="eyebrow">What Clients Say</span><h2>Real businesses. <span class="accent">Real results.</span></h2></div>
             <div class="grid grid-3">
-              <div class="card testimonial-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;OmniFlow built our website in under a week. Within the first month we were getting calls straight from Google &mdash; I had no idea how big a difference it would make.&rdquo;</p><div class="testimonial-footer"><div class="testimonial-avatar">M</div><div><strong>Marcus B.</strong><span>Maxi Taxi Service &bull; Port of Spain</span></div></div></div>
-              <div class="card testimonial-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Before OmniFlow nobody could find us online. Now we rank on Google Maps and bookings have doubled. Their team is fast, professional, and actually explains everything.&rdquo;</p><div class="testimonial-footer"><div class="testimonial-avatar">A</div><div><strong>Anita S.</strong><span>Salon Owner &bull; San Fernando</span></div></div></div>
-              <div class="card testimonial-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;We needed a website that looked as good as our food. OmniFlow delivered something modern and clean that we&rsquo;re genuinely proud to show customers.&rdquo;</p><div class="testimonial-footer"><div class="testimonial-avatar">D</div><div><strong>David R.</strong><span>Restaurant Owner &bull; Chaguanas</span></div></div></div>
+              <div class="card testimonial-card reveal reveal-d1"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;OmniFlow built our website in under a week. Within the first month we were getting calls straight from Google &mdash; I had no idea how big a difference it would make.&rdquo;</p><div class="testimonial-footer"><div class="testimonial-avatar">M</div><div><strong>Marcus B.</strong><span>Maxi Taxi Service &bull; Port of Spain</span></div></div></div>
+              <div class="card testimonial-card reveal reveal-d2"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Before OmniFlow nobody could find us online. Now we rank on Google Maps and bookings have doubled. Their team is fast, professional, and actually explains everything.&rdquo;</p><div class="testimonial-footer"><div class="testimonial-avatar">A</div><div><strong>Anita S.</strong><span>Salon Owner &bull; San Fernando</span></div></div></div>
+              <div class="card testimonial-card reveal reveal-d3"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;We needed a website that looked as good as our food. OmniFlow delivered something modern and clean that we&rsquo;re genuinely proud to show customers.&rdquo;</p><div class="testimonial-footer"><div class="testimonial-avatar">D</div><div><strong>David R.</strong><span>Restaurant Owner &bull; Chaguanas</span></div></div></div>
             </div>
           </section>
-          <div class="cta-band" style="margin-top:34px"><div><h2 style="margin-bottom:8px">Ready to <span class="accent">Grow</span> Your Business?</h2><p>Let's build your digital presence and get you more customers.</p></div><a class="btn route" href="#/contact" data-page="contact">Book Free Consultation →</a></div>
+          <div class="cta-band reveal" style="margin-top:34px"><div><h2 style="margin-bottom:8px">Ready to <span class="accent">Grow</span> Your Business?</h2><p>Let's build your digital presence and get you more customers.</p></div><a class="btn route" href="#/contact" data-page="contact">Book Free Consultation →</a></div>
         </div>
       </section>
     </section>
@@ -411,7 +493,10 @@
     <!-- CONTACT -->
     <section class="page" id="contact" data-title="OmniFlow Digital | Contact">
       <div class="hero"><div class="container hero-inner"><div><span class="eyebrow">Contact</span><h1>Let’s Build Your <span class="accent">Digital Presence</span></h1><p class="lead">We’re here to help your business get found, look professional, and grow online. Reach out and let’s start the conversation.</p><div class="mini-points"><div class="mini-point"><span class="icon-circle" data-icon="pin"></span><span><strong>Local Focus</strong>We understand your market and customers.</span></div><div class="mini-point"><span class="icon-circle" data-icon="message"></span><span><strong>Fast Response</strong>We reply quickly and get things moving.</span></div><div class="mini-point"><span class="icon-circle" data-icon="handshake"></span><span><strong>Reliable Partner</strong>We’re with you every step of the way.</span></div></div></div><div class="visual-system" aria-hidden="true"><div class="orb"><div class="orb-logo" data-logo="infinity"></div></div></div></div></div>
-      <section class="section"><div class="container"><div class="form-grid"><form class="card form-card" id="contactForm"><h2>Send Us a Message</h2><p style="color:var(--muted);line-height:1.6">Tell us about your project and we’ll get back to you shortly.</p><div class="form-row"><div class="form-field"><label for="name">Name</label><input id="name" name="name" placeholder="Your full name" required /></div><div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required /></div></div><div class="form-row"><div class="form-field"><label for="phone">Phone</label><input id="phone" name="phone" placeholder="(868) 123-4567" /></div><div class="form-field"><label for="business">Business Name</label><input id="business" name="business" placeholder="Your business name" /></div></div><div class="form-field"><label for="service">Service Interested In</label><select id="service" name="service" required><option value="">Select a service</option><option>Pinpoint City</option><option>Website Creation</option><option>Design</option><option>Maintenance</option><option>Full Digital Presence</option></select></div><div class="form-field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us about your project, goals, and how we can help..." required></textarea></div><button class="btn" type="submit">Send Message →</button><p id="formStatus" style="margin:18px 0 0;color:var(--muted)">We respect your privacy. Your information is safe with us.</p></form><aside class="card form-card"><h2>Contact Details</h2><p style="color:var(--muted);line-height:1.6">We’re ready to help your business grow. Reach out using any of the options below.</p><div class="contact-detail"><span class="icon-circle" data-icon="phone"></span><p><strong>Phone</strong>(868) 123-4567<br><span style="color:var(--soft)">Mon – Fri, 8:00 AM – 5:00 PM AST</span></p></div><div class="contact-detail"><span class="icon-circle" data-icon="mail"></span><p><strong>Email</strong>hello@omniflowdigital.com<br><span style="color:var(--soft)">We reply within 1 business day.</span></p></div><div class="contact-detail"><span class="icon-circle" data-icon="pin"></span><p><strong>Location</strong>Trinidad & Tobago<br><span style="color:var(--soft)">Serving local businesses nationwide.</span></p></div></aside></div><div class="panel" style="margin-top:34px;padding:30px"><div class="section-head" style="margin-bottom:26px"><h2 style="font-size:28px;margin:0">What Happens Next?</h2></div><div class="grid grid-4"><article><span class="pill">1. We Connect</span><p style="color:var(--muted)">We’ll reach out to learn about your business and goals.</p></article><article><span class="pill">2. We Plan</span><p style="color:var(--muted)">We’ll recommend the best solutions for your needs.</p></article><article><span class="pill">3. We Create</span><p style="color:var(--muted)">Our team gets to work building your digital presence.</p></article><article><span class="pill">4. You Grow</span><p style="color:var(--muted)">We support you as your business grows online.</p></article></div></div></div></section>
+      <section class="section"><div class="container"><div class="form-grid"><form class="card form-card" id="contactForm"><h2>Send Us a Message</h2><p style="color:var(--muted);line-height:1.6">Tell us about your project and we’ll get back to you shortly.</p><div class="form-row"><div class="form-field"><label for="name">Name</label><input id="name" name="name" placeholder="Your full name" required /></div><div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required /></div></div><div class="form-row"><div class="form-field"><label for="phone">Phone</label><input id="phone" name="phone" placeholder="(868) 123-4567" /></div><div class="form-field"><label for="business">Business Name</label><input id="business" name="business" placeholder="Your business name" /></div></div><div class="form-field"><label for="service">Service Interested In</label><select id="service" name="service" required><option value="">Select a service</option><option>Pinpoint City</option><option>Website Creation</option><option>Design</option><option>Maintenance</option><option>Full Digital Presence</option></select></div><div class="form-field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us about your project, goals, and how we can help..." required></textarea></div><div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <button class="btn" type="submit">Send Message →</button>
+          <a class="wa-contact-btn" href="https://wa.me/18681234567?text=Hi%20OmniFlow%20Digital%2C%20I%27m%20interested%20in%20your%20services!" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp Us</a>
+        </div><p id="formStatus" style="margin:18px 0 0;color:var(--muted)">We respect your privacy. Your information is safe with us.</p></form><aside class="card form-card"><h2>Contact Details</h2><p style="color:var(--muted);line-height:1.6">We’re ready to help your business grow. Reach out using any of the options below.</p><div class="contact-detail"><span class="icon-circle" data-icon="phone"></span><p><strong>Phone</strong>(868) 123-4567<br><span style="color:var(--soft)">Mon – Fri, 8:00 AM – 5:00 PM AST</span></p></div><div class="contact-detail"><span class="icon-circle" data-icon="mail"></span><p><strong>Email</strong>hello@omniflowdigital.com<br><span style="color:var(--soft)">We reply within 1 business day.</span></p></div><div class="contact-detail"><span class="icon-circle" data-icon="pin"></span><p><strong>Location</strong>Trinidad & Tobago<br><span style="color:var(--soft)">Serving local businesses nationwide.</span></p></div></aside></div><div class="panel" style="margin-top:34px;padding:30px"><div class="section-head" style="margin-bottom:26px"><h2 style="font-size:28px;margin:0">What Happens Next?</h2></div><div class="grid grid-4"><article><span class="pill">1. We Connect</span><p style="color:var(--muted)">We’ll reach out to learn about your business and goals.</p></article><article><span class="pill">2. We Plan</span><p style="color:var(--muted)">We’ll recommend the best solutions for your needs.</p></article><article><span class="pill">3. We Create</span><p style="color:var(--muted)">Our team gets to work building your digital presence.</p></article><article><span class="pill">4. You Grow</span><p style="color:var(--muted)">We support you as your business grows online.</p></article></div></div></div></section>
     </section>
   </main>
 
@@ -421,17 +506,40 @@
         <div>
           <a class="brand route" href="#/home" data-page="home"><span class="brand-mark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 48" class="logo-mark-img" style="width:82px;height:54px;overflow:visible"><defs><radialGradient id="fb" cx="50%" cy="38%" r="52%"><stop offset="0%" stop-color="#0d1830"/><stop offset="100%" stop-color="#080f1c"/></radialGradient><linearGradient id="fr" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#90c0ff"/><stop offset="35%" stop-color="#2558b0"/><stop offset="65%" stop-color="#1a3880"/><stop offset="100%" stop-color="#90c0ff"/></linearGradient><linearGradient id="fi" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3262d8"/><stop offset="50%" stop-color="#80b8f8"/><stop offset="100%" stop-color="#4070e0"/></linearGradient><filter id="fg" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="37" cy="24" r="22" fill="url(#fb)"/><circle cx="37" cy="24" r="22" fill="none" stroke="url(#fr)" stroke-width="2.2"/><circle cx="37" cy="24" r="19.4" fill="none" stroke="rgba(120,170,255,.12)" stroke-width=".6"/><path d="M37,19 C46,13 57,16 57,25 C57,34 46,37 37,30 C28,37 17,34 17,25 C17,16 28,13 37,19Z" fill="none" stroke="rgba(60,110,220,.18)" stroke-width="10" stroke-linecap="round"/><path d="M37,19 C46,13 57,16 57,25 C57,34 46,37 37,30 C28,37 17,34 17,25 C17,16 28,13 37,19Z" fill="none" stroke="rgba(90,140,240,.38)" stroke-width="5.5" stroke-linecap="round"/><path d="M37,19 C46,13 57,16 57,25 C57,34 46,37 37,30 C28,37 17,34 17,25 C17,16 28,13 37,19Z" fill="none" stroke="url(#fi)" stroke-width="2.4" stroke-linecap="round" filter="url(#fg)"/><path d="M37,19 C46,13 57,16 57,25 C57,34 46,37 37,30 C28,37 17,34 17,25 C17,16 28,13 37,19Z" fill="none" stroke="rgba(180,215,255,.55)" stroke-width=".9" stroke-linecap="round"/></svg></span><span><span class="brand-name">Omni<span>Flow</span></span><span class="brand-sub">DIGITAL</span></span></a>
           <p><strong style="color:var(--orange2)">Get Found. Look Professional. Grow Online.</strong><br>Helping local businesses grow with websites, visibility, design, and ongoing support.</p>
-          <div class="socials"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a></div>
+          <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path class="fill-icon" d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
         </div>
         <div><h4>Services</h4><a class="route" href="#/pinpoint" data-page="pinpoint">Pinpoint City</a><a class="route" href="#/website" data-page="website">Website Creation</a><a class="route" href="#/services" data-page="services">Design</a><a class="route" href="#/maintenance" data-page="maintenance">Maintenance</a><a class="route" href="#/services" data-page="services">Growth Analytics</a></div>
         <div><h4>Quick Links</h4><a class="route" href="#/home" data-page="home">Home</a><a class="route" href="#/about" data-page="about">About</a><a class="route" href="#/services" data-page="services">Services</a><a class="route" href="#/website" data-page="website">Website Creation</a><a class="route" href="#/contact" data-page="contact">Contact</a></div>
         <div><h4>Contact Us</h4><a href="tel:+18681234567">(868) 123-4567</a><a href="mailto:hello@omniflowdigital.com">hello@omniflowdigital.com</a><a href="#/home" class="route" data-page="home">www.omniflowdigital.com</a><a href="#">Trinidad & Tobago</a></div>
       </div>
-      <div class="copyright">© 2025 OmniFlow Digital. All rights reserved.</div>
+      <div class="copyright">© <span id="cy">2025</span> OmniFlow Digital. All rights reserved.</div>
     </div>
   </footer>
 
   <script>
+    // Dynamic year
+    document.getElementById('cy').textContent = new Date().getFullYear();
+
+    // Back to top
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', ()=>{backTop.classList.toggle('show', window.scrollY>380);},{passive:true});
+    backTop.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+    // Scroll reveal via IntersectionObserver
+    function setupReveal(){
+      const els = document.querySelectorAll('.page.active .reveal, .page.active .reveal-left, .page.active .reveal-right');
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+      },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+      els.forEach(el=>io.observe(el));
+      return io;
+    }
+    let revealIo = setupReveal();
+
     const iconMap = {
       pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-5.4 7-12a7 7 0 0 0-14 0c0 6.6 7 12 7 12Z"/><circle cx="12" cy="10" r="2.4"/></svg>',
       web:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 15l2.2-2.4 2.4 2.8 2-2 3.4 3.6"/></svg>',
@@ -481,6 +589,7 @@
       if(push) history.pushState({page}, '', '#/'+page);
       mobileNav.classList.remove('open'); mobileToggle.classList.remove('open'); mobileToggle.setAttribute('aria-expanded','false');
       window.scrollTo({top:0, behavior:'smooth'});
+      setTimeout(()=>{ revealIo.disconnect(); revealIo=setupReveal(); }, 60);
     }
     document.addEventListener('click', e=>{
       const route = e.target.closest('.route');
