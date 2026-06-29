@@ -276,6 +276,24 @@
       input,select,textarea{font-size:16px;}
     }
     @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.orb::before,.orb::after{animation:none!important;}}
+
+    /* Stats strip */
+    .stats-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(74,127,229,.14);border-bottom:1px solid rgba(74,127,229,.14);background:rgba(74,127,229,.04);}
+    .stat{padding:26px 20px;text-align:center;border-right:1px solid rgba(74,127,229,.12);}
+    .stat:last-child{border-right:0;}
+    .stat strong{display:block;font-size:clamp(26px,3vw,38px);font-weight:950;letter-spacing:-.04em;color:#fff;line-height:1;}
+    .stat span{display:block;font-size:13px;color:rgba(255,255,255,.55);margin-top:5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
+    @media(max-width:720px){.stats-strip{grid-template-columns:repeat(2,1fr);}.stat{border-bottom:1px solid rgba(74,127,229,.12);}.stat:nth-child(odd){border-right:1px solid rgba(74,127,229,.12)}.stat:nth-child(even){border-right:0;}.stat:nth-last-child(-n+2){border-bottom:0;}}
+
+    /* Testimonials */
+    .testimonial-card{padding:28px;display:flex;flex-direction:column;gap:16px;}
+    .testimonial-card blockquote{margin:0;padding:0;}
+    .stars{color:#7aa8f0;font-size:16px;letter-spacing:2px;}
+    .testimonial-card p{color:rgba(255,255,255,.80);line-height:1.65;font-size:15px;margin:0;font-style:italic;}
+    .testimonial-footer{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid rgba(74,127,229,.14);}
+    .testimonial-avatar{width:40px;height:40px;min-width:40px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#6390ee);display:grid;place-items:center;font-weight:900;font-size:15px;color:#fff;}
+    .testimonial-footer strong{display:block;font-size:14px;color:#fff;}
+    .testimonial-footer span{display:block;font-size:12px;color:rgba(255,255,255,.50);margin-top:1px;}
   </style>
 </head>
 <body>
@@ -298,9 +316,6 @@
             <a class="route" href="#/maintenance" data-page="maintenance">Maintenance <span>→</span></a>
           </div>
         </div>
-        <a class="nav-link route" href="#/pinpoint" data-page="pinpoint">Pinpoint City</a>
-        <a class="nav-link route" href="#/website" data-page="website">Website Creation</a>
-        <a class="nav-link route" href="#/maintenance" data-page="maintenance">Maintenance</a>
         <a class="nav-link route" href="#/contact" data-page="contact">Contact</a>
       </nav>
       <a class="cta-btn header-cta route" href="#/contact" data-page="contact">Book Free Consultation</a>
@@ -310,9 +325,6 @@
       <a class="route" href="#/home" data-page="home">Home <span>→</span></a>
       <a class="route" href="#/about" data-page="about">About <span>→</span></a>
       <a class="route" href="#/services" data-page="services">Services <span>→</span></a>
-      <a class="route" href="#/pinpoint" data-page="pinpoint">Pinpoint City <span>→</span></a>
-      <a class="route" href="#/website" data-page="website">Website Creation <span>→</span></a>
-      <a class="route" href="#/maintenance" data-page="maintenance">Maintenance <span>→</span></a>
       <a class="route" href="#/contact" data-page="contact">Contact <span>→</span></a>
     </nav>
   </header>
@@ -336,6 +348,12 @@
           </div>
         </div>
       </div>
+      <div class="stats-strip container" style="max-width:100%;width:100%">
+        <div class="stat"><strong>50+</strong><span>Sites Built</span></div>
+        <div class="stat"><strong>3 days</strong><span>Avg. Launch</span></div>
+        <div class="stat"><strong>100%</strong><span>Client Retention</span></div>
+        <div class="stat"><strong>T&amp;T</strong><span>Local Experts</span></div>
+      </div>
       <section class="section compact">
         <div class="container">
           <div class="section-head"><span class="eyebrow">Our Services</span><h2>Everything You Need to <span class="accent">Grow Online</span></h2></div>
@@ -345,6 +363,14 @@
             <article class="card feature-card"><span class="icon-circle" data-icon="pen"></span><h3>Design</h3><p>Modern, on-brand design that communicates your value and builds trust instantly.</p><a class="learn route" href="#/services" data-page="services">Learn More →</a></article>
             <article class="card feature-card"><span class="icon-circle" data-icon="gear"></span><h3>Maintenance</h3><p>Reliable updates, backups, security, and support so your site always runs smoothly.</p><a class="learn route" href="#/maintenance" data-page="maintenance">Learn More →</a></article>
           </div>
+          <section style="padding:48px 0 0">
+            <div class="section-head" style="margin-bottom:28px"><span class="eyebrow">What Clients Say</span><h2>Real businesses. <span class="accent">Real results.</span></h2></div>
+            <div class="grid grid-3">
+              <div class="card testimonial-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;OmniFlow built our website in under a week. Within the first month we were getting calls straight from Google &mdash; I had no idea how big a difference it would make.&rdquo;</p><div class="testimonial-footer"><div class="testimonial-avatar">M</div><div><strong>Marcus B.</strong><span>Maxi Taxi Service &bull; Port of Spain</span></div></div></div>
+              <div class="card testimonial-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Before OmniFlow nobody could find us online. Now we rank on Google Maps and bookings have doubled. Their team is fast, professional, and actually explains everything.&rdquo;</p><div class="testimonial-footer"><div class="testimonial-avatar">A</div><div><strong>Anita S.</strong><span>Salon Owner &bull; San Fernando</span></div></div></div>
+              <div class="card testimonial-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;We needed a website that looked as good as our food. OmniFlow delivered something modern and clean that we&rsquo;re genuinely proud to show customers.&rdquo;</p><div class="testimonial-footer"><div class="testimonial-avatar">D</div><div><strong>David R.</strong><span>Restaurant Owner &bull; Chaguanas</span></div></div></div>
+            </div>
+          </section>
           <div class="cta-band" style="margin-top:34px"><div><h2 style="margin-bottom:8px">Ready to <span class="accent">Grow</span> Your Business?</h2><p>Let's build your digital presence and get you more customers.</p></div><a class="btn route" href="#/contact" data-page="contact">Book Free Consultation →</a></div>
         </div>
       </section>
