@@ -1222,9 +1222,6 @@
     }
     const lineGeo = new THREE.BufferGeometry();
     lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePoints, 3));
-    const lineMat = new THREE.LineSegmentsGeometry
-      ? new THREE.LineSegmentsGeometry() // fallback
-      : null;
     const lines = new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({
       color: 0x3a70d0, transparent: true, opacity: 0.28
     }));
@@ -1244,7 +1241,7 @@
 
     // Group for mouse parallax
     const group = new THREE.Group();
-    threeScene.children.forEach(c => { if (c !== light1 && c !== light2) group.add(c); });
+    [...threeScene.children].forEach(c => { if (c !== light1 && c !== light2) group.add(c); });
     threeScene.add(group);
 
     // Mouse parallax
@@ -1301,10 +1298,12 @@
       const suffix = el.textContent.replace(/[0-9]/g, '') || '';
       el.dataset.animated = '1';
       if (window.gsap) {
-        gsap.fromTo({ val: 0 }, { val: target }, {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
           duration: 2.2,
           ease: 'power2.out',
-          onUpdate: function() { el.textContent = Math.floor(this.targets()[0].val) + suffix; },
+          onUpdate() { el.textContent = Math.floor(obj.val) + suffix; },
           scrollTrigger: { trigger: el, start: 'top 90%', once: true }
         });
       } else {
@@ -1325,18 +1324,25 @@
     if (!window.gsap || !window.ScrollTrigger) return;
     gsap.registerPlugin(ScrollTrigger);
 
+    // Hero elements: immediate stagger (already in viewport — no scroll trigger)
+    const heroFades = [...document.querySelectorAll('.page.active .hero .fade-up')]
+      .filter(el => !el._gsapScrollTrigger);
+    if (heroFades.length) {
+      gsap.fromTo(heroFades,
+        { opacity: 0, y: 38 },
+        { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.14, delay: 0.18 }
+      );
+      heroFades.forEach(el => { el._gsapScrollTrigger = true; });
+    }
+
+    // All other fade-up elements driven by scroll position
     gsap.utils.toArray('.fade-up').forEach(el => {
       if (el._gsapScrollTrigger) return;
       gsap.fromTo(el, { opacity: 0, y: 38 }, {
         opacity: 1, y: 0,
         duration: 0.82,
         ease: 'power3.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 90%',
-          toggleActions: 'play none none none',
-          once: true
-        }
+        scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none', once: true }
       });
       el._gsapScrollTrigger = true;
     });
@@ -1389,23 +1395,14 @@
     const page = PAGES.includes(hash) ? hash : 'home';
     navigate(page);
 
-    // GSAP ready
-    if (window.gsap) {
-      gsap.registerPlugin(ScrollTrigger);
-      // Initial hero fade-in stagger
-      gsap.from('#page-home .hero .fade-up', {
-        opacity: 0, y: 42, duration: 1,
-        ease: 'power3.out', stagger: 0.16, delay: 0.3
-      });
-    }
+    if (window.gsap) gsap.registerPlugin(ScrollTrigger);
 
     initTiltCards();
-    setTimeout(initScrollAnimations, 400);
 
-    // Re-init tilt on page change (MutationObserver on .active pages)
+    // Re-init tilt + animations when active page changes
     const mo = new MutationObserver(() => {
       initTiltCards();
-      setTimeout(initScrollAnimations, 100);
+      setTimeout(initScrollAnimations, 80);
     });
     document.querySelectorAll('.page').forEach(p => mo.observe(p, { attributes: true, attributeFilter: ['class'] }));
   }
