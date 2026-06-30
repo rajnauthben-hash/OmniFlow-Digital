@@ -45,7 +45,8 @@
       color-scheme:dark;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
+    html{scroll-behavior:smooth;overflow-x:hidden;width:100%;}
+    body{width:100%;}
     body{
       background:
         radial-gradient(ellipse 800px 600px at 85% -5%,rgba(80,144,248,.10),transparent),
@@ -169,7 +170,7 @@
     /* HERO */
     #canvas-container{position:absolute;inset:0;z-index:0;pointer-events:none;}
     #canvas-container canvas{width:100%!important;height:100%!important;display:block;}
-    .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:calc(var(--nav) + 48px) 24px 80px;}
+    .hero{position:relative;width:100%;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:calc(var(--nav) + 48px) 24px 80px;}
     .hero-inner{position:relative;z-index:2;max-width:var(--max);margin:0 auto;width:100%;}
     .hero-tag{display:inline-flex;align-items:center;gap:9px;padding:6px 16px;border-radius:99px;border:1px solid rgba(80,144,248,.28);background:rgba(80,144,248,.07);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue2);margin-bottom:28px;}
     .hero-tag span{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:pulse 2s ease-in-out infinite;}
@@ -292,7 +293,7 @@
     .social-link svg{width:16px;height:16px;fill:currentColor;}
 
     /* PAGES */
-    .page{display:none;}.page.active{display:block;}
+    .page{display:none;width:100%;}.page.active{display:block;width:100%;}
 
     /* GSAP ANIMATION STARTERS */
     .fade-up{opacity:0;transform:translateY(36px);}
@@ -455,20 +456,20 @@
     <div class="stats-strip">
       <div class="stats-inner">
         <div class="stat-item">
-          <span class="stat-num" data-count="150">0</span>
-          <span class="stat-label">Clients Served</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" data-count="98">0</span>
-          <span class="stat-label">% Satisfaction Rate</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" data-count="5">0</span>
-          <span class="stat-label">Years in Business</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" data-count="3">0</span>
+          <span class="stat-num">3–7</span>
           <span class="stat-label">Days to Launch</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Custom — No Templates</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">T&T</span>
+          <span class="stat-label">Local Market Experts</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">24/7</span>
+          <span class="stat-label">Support Access</span>
         </div>
       </div>
     </div>
@@ -556,32 +557,19 @@
       </div>
     </div>
 
-    <!-- TESTIMONIALS -->
+    <!-- CLIENT REVIEWS — to be filled with real testimonials -->
     <div style="background:rgba(80,144,248,.025);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
       <div class="section">
         <div class="section-header center">
-          <div class="section-label fade-up">Real Results</div>
-          <h2 class="section-title fade-up">What Our Clients Say</h2>
-          <p class="section-sub fade-up">Businesses across Trinidad & Tobago trust OmniFlow to build their online presence and keep it thriving.</p>
+          <div class="section-label fade-up">Client Reviews</div>
+          <h2 class="section-title fade-up">What Our Clients <span class="accent">Will Say</span></h2>
+          <p class="section-sub fade-up">We're growing and would love for your business to be one of our first success stories in Trinidad & Tobago.</p>
         </div>
-        <div class="grid-3">
-          <div class="testi-card fade-up">
-            <div class="stars"><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-            <svg class="testi-quote" viewBox="0 0 44 36" xmlns="http://www.w3.org/2000/svg"><path d="M0 36V22C0 9.6 6.4 2.8 19.2 0L21 4.2C15 6 11.6 9.4 10.6 15H19V36H0ZM25 36V22C25 9.6 31.4 2.8 44.2 0L46 4.2C40 6 36.6 9.4 35.6 15H44V36H25Z" fill="rgba(80,144,248,0.48)"/></svg>
-            <p class="testi-text">Our Google ranking went from page 5 to position 2 in under three months. We now get daily calls from new customers who found us online.</p>
-            <div class="testi-meta"><div class="testi-avatar">SK</div><div><div class="testi-name">Shanti K.</div><div class="testi-role">Spa Owner, San Fernando</div></div></div>
-          </div>
-          <div class="testi-card fade-up">
-            <div class="stars"><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-            <svg class="testi-quote" viewBox="0 0 44 36" xmlns="http://www.w3.org/2000/svg"><path d="M0 36V22C0 9.6 6.4 2.8 19.2 0L21 4.2C15 6 11.6 9.4 10.6 15H19V36H0ZM25 36V22C25 9.6 31.4 2.8 44.2 0L46 4.2C40 6 36.6 9.4 35.6 15H44V36H25Z" fill="rgba(80,144,248,0.48)"/></svg>
-            <p class="testi-text">The website OmniFlow built for us is stunning. Our conversion rate doubled in the first month. Worth every dollar.</p>
-            <div class="testi-meta"><div class="testi-avatar">MA</div><div><div class="testi-name">Marcus A.</div><div class="testi-role">Restaurant Owner, Port of Spain</div></div></div>
-          </div>
-          <div class="testi-card fade-up">
-            <div class="stars"><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-            <svg class="testi-quote" viewBox="0 0 44 36" xmlns="http://www.w3.org/2000/svg"><path d="M0 36V22C0 9.6 6.4 2.8 19.2 0L21 4.2C15 6 11.6 9.4 10.6 15H19V36H0ZM25 36V22C25 9.6 31.4 2.8 44.2 0L46 4.2C40 6 36.6 9.4 35.6 15H44V36H25Z" fill="rgba(80,144,248,0.48)"/></svg>
-            <p class="testi-text">The monthly maintenance package is incredible value. They handle everything — I just run my business. Best investment I've made.</p>
-            <div class="testi-meta"><div class="testi-avatar">TJ</div><div><div class="testi-name">Tamara J.</div><div class="testi-role">Boutique Owner, Chaguanas</div></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:32px;padding:8px 0 16px;">
+          <div class="testi-card fade-up" style="max-width:600px;width:100%;text-align:center;padding:52px 40px;">
+            <svg style="width:52px;height:52px;margin:0 auto 20px;" viewBox="0 0 24 24" fill="none" stroke="var(--blue2)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <p style="font-size:1.1rem;color:var(--muted);line-height:1.8;margin-bottom:28px;">Your review could be here. Be one of our founding clients and share how OmniFlow helped your business grow in Trinidad & Tobago.</p>
+            <a href="#/contact" onclick="navigate('contact')" class="cta-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">Start Your Project <svg style="width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </div>
       </div>
@@ -665,26 +653,26 @@
         <div>
           <div class="section-label">Who We Are</div>
           <h1 class="section-title">We Are Trinidad's <span class="accent">Digital Growth</span> Partner</h1>
-          <p style="font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:28px;">OmniFlow Digital was founded with one mission: to give every local business in Trinidad & Tobago access to the kind of digital presence that used to be reserved for big corporations with massive budgets.</p>
-          <p style="font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:32px;">We combine cutting-edge design, local market expertise, and obsessive attention to results — delivered at prices that make sense for Caribbean businesses.</p>
+          <p style="font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:28px;">OmniFlow Digital was built with one mission: to give every local business in Trinidad & Tobago access to the kind of digital presence that was previously reserved for big corporations with massive budgets.</p>
+          <p style="font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:32px;">We combine premium design, deep local market knowledge, and a relentless focus on real results — delivered at prices that make sense for Caribbean businesses.</p>
           <a href="#/contact" onclick="navigate('contact')" class="cta-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">Work With Us <svg style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
           <div class="card" style="text-align:center;padding:32px 20px;">
-            <span class="highlight-num" data-count="150">0+</span>
-            <div style="font-size:.84rem;color:var(--muted);margin-top:8px;">Clients Served</div>
-          </div>
-          <div class="card" style="text-align:center;padding:32px 20px;">
-            <span class="highlight-num" data-count="5">0+</span>
-            <div style="font-size:.84rem;color:var(--muted);margin-top:8px;">Years Experience</div>
-          </div>
-          <div class="card" style="text-align:center;padding:32px 20px;">
-            <span class="highlight-num" data-count="98">0%</span>
-            <div style="font-size:.84rem;color:var(--muted);margin-top:8px;">Client Retention</div>
-          </div>
-          <div class="card" style="text-align:center;padding:32px 20px;">
-            <span class="highlight-num" data-count="3">0</span>
+            <span class="highlight-num">3–7</span>
             <div style="font-size:.84rem;color:var(--muted);margin-top:8px;">Days to Launch</div>
+          </div>
+          <div class="card" style="text-align:center;padding:32px 20px;">
+            <span class="highlight-num">100%</span>
+            <div style="font-size:.84rem;color:var(--muted);margin-top:8px;">Custom Design</div>
+          </div>
+          <div class="card" style="text-align:center;padding:32px 20px;">
+            <span class="highlight-num">T&T</span>
+            <div style="font-size:.84rem;color:var(--muted);margin-top:8px;">Local Expertise</div>
+          </div>
+          <div class="card" style="text-align:center;padding:32px 20px;">
+            <span class="highlight-num">24/7</span>
+            <div style="font-size:.84rem;color:var(--muted);margin-top:8px;">Client Support</div>
           </div>
         </div>
       </div>
@@ -830,8 +818,8 @@
         </div>
         <div style="display:flex;flex-direction:column;gap:20px;">
           <div class="card fade-up" style="text-align:center;">
-            <span class="highlight-num">3x</span>
-            <div style="font-size:.9rem;color:var(--muted);margin-top:8px;">Average increase in Google visibility within 90 days</div>
+            <span class="highlight-num">Top 3</span>
+            <div style="font-size:.9rem;color:var(--muted);margin-top:8px;">Google Maps visibility — our goal for every client</div>
           </div>
           <div class="card fade-up" style="background:var(--grad);border:0;">
             <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:12px;">Results Timeline</h3>
@@ -854,7 +842,7 @@
       <div style="max-width:760px;margin-bottom:64px;">
         <span class="badge badge-blue fade-up" style="margin-bottom:20px;">Website Design</span>
         <h1 class="section-title fade-up">Websites That <span class="accent">Work as Hard as You Do</span></h1>
-        <p style="font-size:1.08rem;color:var(--muted);line-height:1.8;margin-bottom:32px;" class="fade-up">Every website we build is custom-designed from scratch — no page builders, no templates, no shortcuts. Just clean, fast, beautiful code that loads in under 2 seconds and converts visitors into customers.</p>
+        <p style="font-size:1.08rem;color:var(--muted);line-height:1.8;margin-bottom:32px;" class="fade-up">Every website we build is custom-designed from scratch — no page builders, no templates, no shortcuts. Just clean, fast, beautiful code that converts visitors into customers.</p>
         <a href="#/contact" onclick="navigate('contact')" class="cta-btn fade-up" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">Start Your Website <svg style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
 
@@ -862,12 +850,12 @@
         <div class="card tilt-card fade-up" style="text-align:center;">
           <div class="card-icon" style="margin:0 auto 20px;"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
           <h4 style="font-weight:800;margin-bottom:8px;">Lightning Fast</h4>
-          <p style="font-size:.88rem;color:var(--muted);line-height:1.6;">Under 2-second load times. No bloated plugins, no slow frameworks — just optimised, hand-crafted code.</p>
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.6;">Fast load times, no bloated plugins, no slow frameworks — just optimised, hand-crafted code.</p>
         </div>
         <div class="card tilt-card fade-up" style="text-align:center;">
           <div class="card-icon" style="margin:0 auto 20px;background:var(--grad-r);"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
           <h4 style="font-weight:800;margin-bottom:8px;">Mobile First</h4>
-          <p style="font-size:.88rem;color:var(--muted);line-height:1.6;">Built for the 80%+ of your visitors on mobile. Pixel-perfect on every screen size, every device.</p>
+          <p style="font-size:.88rem;color:var(--muted);line-height:1.6;">Pixel-perfect on every screen size and device. Most of your customers are on mobile — we build for that first.</p>
         </div>
         <div class="card tilt-card fade-up" style="text-align:center;">
           <div class="card-icon" style="margin:0 auto 20px;background:linear-gradient(135deg,#10b981,#22d3ee);"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
@@ -1194,7 +1182,7 @@
     if (!container || !window.THREE) return;
     destroyThreeScene();
 
-    const W = container.clientWidth, H = container.clientHeight;
+    const W = window.innerWidth, H = window.innerHeight;
     threeScene = new THREE.Scene();
     threeCamera = new THREE.PerspectiveCamera(55, W / H, 0.1, 100);
     threeCamera.position.z = 3.8;
@@ -1203,6 +1191,7 @@
     threeRenderer.setPixelRatio(Math.min(devicePixelRatio, 2));
     threeRenderer.setSize(W, H);
     threeRenderer.setClearColor(0x000000, 0);
+    threeRenderer.domElement.style.cssText = 'position:absolute;inset:0;width:100%!important;height:100%!important;display:block;';
     container.appendChild(threeRenderer.domElement);
 
     // Nodes: Fibonacci sphere
@@ -1276,14 +1265,14 @@
     }
     tick();
 
-    // Resize
-    const ro = new ResizeObserver(() => {
-      const W2 = container.clientWidth, H2 = container.clientHeight;
+    // Resize — always use viewport dimensions
+    const onThreeResize = () => {
+      const W2 = window.innerWidth, H2 = window.innerHeight;
       threeCamera.aspect = W2 / H2;
       threeCamera.updateProjectionMatrix();
       threeRenderer.setSize(W2, H2);
-    });
-    ro.observe(container);
+    };
+    window.addEventListener('resize', onThreeResize, { passive: true });
   }
 
   // ── 3D CARD TILT ───────────────────────────────────────────
