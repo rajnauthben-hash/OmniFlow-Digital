@@ -1460,6 +1460,14 @@
     }
     /* Pointer fix for all interactive elements */
     a,button,.cta-btn,.btn{cursor:none;}
+    /* Re-assert mobile nav collapse: this block loads after the earlier
+       @media(max-width:768px) rule and was overriding it, forcing the
+       desktop nav-links/nav-cta to render (and overflow) on phone widths
+       while pushing the hamburger toggle off-screen. */
+    @media(max-width:768px){
+      .nav-links,.nav-cta{display:none;}
+      .mobile-toggle{display:flex;}
+    }
   </style>
 </body>
 </html>
