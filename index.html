@@ -168,20 +168,32 @@
   </style>
   <style>
     /* HERO */
-    #canvas-container{position:absolute;inset:0;z-index:0;pointer-events:none;}
-    #canvas-container canvas{width:100%!important;height:100%!important;display:block;}
     .hero{position:relative;width:100%;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:calc(var(--nav) + 48px) 24px 80px;}
-    .hero-inner{position:relative;z-index:2;max-width:var(--max);margin:0 auto;width:100%;}
+    /* Video background */
+    .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;pointer-events:none;}
+    /* Gradient overlay — keeps text readable over the video; stronger on the left (text side) */
+    .hero::before{
+      content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(4,10,22,.85) 0%,rgba(4,10,22,.62) 42%,rgba(4,10,22,.12) 72%,rgba(4,10,22,.04) 100%);
+    }
+    /* Text block — left-aligned, constrained to the empty left portion of the desktop visual */
+    .hero-inner{position:relative;z-index:1;max-width:50%;margin:0;}
     .hero-tag{display:inline-flex;align-items:center;gap:9px;padding:6px 16px;border-radius:99px;border:1px solid rgba(80,144,248,.28);background:rgba(80,144,248,.07);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue2);margin-bottom:28px;}
     .hero-tag span{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:pulse 2s ease-in-out infinite;}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.8)}}
     .hero h1{font-family:"Syne",sans-serif;font-size:clamp(2.8rem,6.5vw,5.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.06;max-width:900px;margin-bottom:26px;}
     .hero h1 .line2{display:block;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-    .hero-sub{font-size:clamp(1.05rem,1.8vw,1.22rem);color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:40px;}
+    .hero-sub{font-size:clamp(1.05rem,1.8vw,1.22rem);color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:40px;}
     .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
     .hero-scroll{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--soft);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;z-index:2;}
     .hero-scroll::after{content:"";width:1px;height:42px;background:linear-gradient(to bottom,rgba(80,144,248,.6),transparent);animation:scrollLine 1.8s ease-in-out infinite;}
     @keyframes scrollLine{0%,100%{opacity:.4;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+    /* Mobile hero — text in top zone, full-width, gradient vertical */
+    @media(max-width:768px){
+      .hero{align-items:flex-start;padding-top:calc(var(--nav) + 40px);}
+      .hero-inner{max-width:100%;width:100%;}
+      .hero::before{background:linear-gradient(180deg,rgba(4,10,22,.88) 0%,rgba(4,10,22,.6) 48%,rgba(4,10,22,.72) 100%);}
+    }
 
     h1,h2,h3{font-family:"Syne",sans-serif;}
     /* SECTIONS */
@@ -433,7 +445,12 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div id="canvas-container"></div>
+      <!-- Video background: autoplay, loop, muted, playsinline for mobile autoplay support.
+           Source order matters — browser picks the first matching <source media> or falls back to last. -->
+      <video class="hero-video" autoplay loop muted playsinline poster="assets/images/hero-poster-desktop.jpg">
+        <source media="(max-width:768px)" src="assets/videos/hero-mobile.mp4" type="video/mp4">
+        <source src="assets/videos/hero-desktop.mp4" type="video/mp4">
+      </video>
       <div class="hero-inner">
         <div class="hero-tag fade-up">
           <span></span>
