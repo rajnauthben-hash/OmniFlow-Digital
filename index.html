@@ -40,7 +40,7 @@
       --shadow:0 28px 70px rgba(0,0,0,.62); --card-sh:0 8px 36px rgba(0,0,0,.38);
       --glow:0 0 44px rgba(80,144,248,.22); --glow-v:0 0 44px rgba(124,91,246,.22);
       --glow-sm:0 0 18px rgba(80,144,248,.16);
-      --r:20px; --r-sm:14px; --r-xs:10px;
+      --r:16px; --r-sm:12px; --r-xs:8px;
       --max:1180px; --nav:82px;
       color-scheme:dark;
     }
@@ -109,7 +109,7 @@
     .orb-logo .logo-mark-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 14px rgba(80,144,248,.54));}
     .footer .brand-mark .logo-mark-img{width:80px;height:52px;}
     .brand-name{font-family:"Syne",sans-serif;line-height:.9;font-weight:800;letter-spacing:-.04em;font-size:29px;}
-    .brand-name span{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .brand-name span{color:var(--cyan);}
     .brand-sub{display:block;letter-spacing:.65em;font-size:11px;margin-left:3px;margin-top:7px;color:rgba(255,255,255,.66);font-weight:700;}
     .desktop-nav{display:flex;align-items:center;gap:4px;flex:1;justify-content:center;}
     .nav-link,.drop-btn{
@@ -194,8 +194,8 @@
     .hero-tag{display:inline-flex;align-items:center;gap:9px;padding:6px 16px;border-radius:99px;border:1px solid rgba(80,144,248,.28);background:rgba(80,144,248,.07);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue2);margin-bottom:28px;}
     .hero-tag span{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:pulse 2s ease-in-out infinite;}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.8)}}
-    .hero h1{font-family:"Syne",sans-serif;font-size:clamp(2.8rem,6.5vw,5.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.06;max-width:900px;margin-bottom:26px;}
-    .hero h1 .line2{display:block;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero h1{font-family:"Syne",sans-serif;font-size:clamp(2.8rem,6.5vw,5.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.06;max-width:900px;margin-bottom:26px;text-wrap:balance;}
+    .hero h1 .line2{display:block;color:var(--cyan);}
     .hero-sub{font-size:clamp(1.05rem,1.8vw,1.22rem);color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:40px;}
     .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
     .hero-scroll{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--soft);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;z-index:2;}
@@ -246,7 +246,7 @@
     .stats-inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);}
     .stat-item{padding:40px 24px;border-right:1px solid var(--line);text-align:center;}
     .stat-item:last-child{border-right:0;}
-    .stat-num{font-family:"Syne",sans-serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:1;}
+    .stat-num{font-family:"Syne",sans-serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;color:var(--blue);display:block;line-height:1;}
     .stat-label{font-size:.84rem;color:var(--muted);margin-top:8px;font-weight:500;}
 
     /* MARQUEE */
@@ -275,7 +275,7 @@
     .price-card.popular{border-color:rgba(80,144,248,.5);background:rgba(12,26,60,.72);box-shadow:0 0 0 1px rgba(80,144,248,.3),var(--glow);}
     .price-card.popular::before{content:"Most Popular";position:absolute;top:0;right:24px;background:var(--grad);padding:5px 16px;border-radius:0 0 12px 12px;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
     .price-name{font-size:.84rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue2);margin-bottom:12px;}
-    .price-val{font-family:"Syne",sans-serif;font-size:clamp(2.4rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .price-val{font-family:"Syne",sans-serif;font-size:clamp(2.4rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;color:var(--blue);}
     .price-period{font-size:.84rem;color:var(--muted);font-weight:400;}
     .price-desc{font-size:.9rem;color:var(--muted);margin:16px 0 24px;line-height:1.6;}
     .price-list{list-style:none;margin-bottom:32px;display:flex;flex-direction:column;gap:12px;}
@@ -286,7 +286,7 @@
     .process-list{display:flex;flex-direction:column;gap:0;}
     .process-step{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid var(--line2);}
     .process-step:last-child{border-bottom:0;}
-    .step-num{font-family:"Syne",sans-serif;font-size:2.8rem;font-weight:800;letter-spacing:-.04em;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;padding-top:4px;}
+    .step-num{font-family:"Syne",sans-serif;font-size:2.8rem;font-weight:800;letter-spacing:-.04em;color:var(--blue);line-height:1;padding-top:4px;}
     .step-title{font-size:1.12rem;font-weight:700;margin-bottom:8px;}
     .step-desc{font-size:.9rem;color:var(--muted);line-height:1.7;}
 
@@ -347,7 +347,7 @@
     .value-card{padding:28px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:var(--r-sm);}
     .value-card h4{font-size:.95rem;font-weight:700;margin-bottom:8px;}
     .value-card p{font-size:.85rem;color:var(--muted);line-height:1.6;}
-    .highlight-num{font-family:"Syne",sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:800;letter-spacing:-.04em;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;display:block;}
+    .highlight-num{font-family:"Syne",sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:800;letter-spacing:-.04em;color:var(--cyan);line-height:1;display:block;}
 
     /* PINPOINT FEATURE LIST */
     .feature-row{display:flex;align-items:flex-start;gap:18px;padding:24px 0;border-bottom:1px solid var(--line2);}
@@ -1079,7 +1079,7 @@
     <div class="footer-inner">
       <div class="footer-grid">
         <div>
-          <div class="footer-logo">Omni<span style="background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Flow</span></div>
+          <div class="footer-logo">Omni<span style="color:var(--cyan);">Flow</span></div>
           <p class="footer-desc">Trinidad & Tobago's premium digital agency. We help local businesses get found online, look professional, and grow fast.</p>
           <div class="social-links" style="margin-top:22px;">
             <a href="#" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -1493,7 +1493,7 @@
       font-weight:900;font-size:1.3rem;letter-spacing:-.04em;
       text-decoration:none;color:#fff;
     }
-    .brand-name span{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .brand-name span{color:var(--cyan);}
     .nav-links{display:flex;align-items:center;gap:4px;flex:1;justify-content:center;}
     .nav-links a{
       padding:10px 16px;border-radius:99px;color:rgba(255,255,255,.75);
@@ -1506,11 +1506,8 @@
       border-radius:99px;background:var(--grad);box-shadow:0 0 10px rgba(80,144,248,.5);
     }
     .nav-cta{display:flex;align-items:center;gap:12px;}
-    /* Gradient text utility */
-    .accent{
-      background:var(--grad-text);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-    }
+    /* Accent text utility — solid cyan, no gradient */
+    .accent{color:var(--cyan);}
     /* Pointer fix for all interactive elements */
     a,button,.cta-btn,.btn{cursor:none;}
     /* Re-assert mobile nav collapse: this block loads after the earlier
