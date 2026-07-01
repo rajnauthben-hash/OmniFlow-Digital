@@ -144,8 +144,8 @@
       transform:translateY(-3px);
       box-shadow:0 0 0 1px rgba(80,144,248,.4),0 16px 44px rgba(80,144,248,.42);
     }
-    .btn.secondary{background:rgba(255,255,255,.05);border:1px solid rgba(80,144,248,.36);box-shadow:none;color:#fff;}
-    .btn.secondary:hover{background:rgba(80,144,248,.11);box-shadow:0 0 22px rgba(80,144,248,.18);transform:translateY(-3px);}
+    .btn.secondary{background:rgba(80,144,248,.1);border:1px solid rgba(80,144,248,.45);box-shadow:none;color:#fff;}
+    .btn.secondary:hover{background:rgba(80,144,248,.18);border-color:rgba(80,144,248,.65);box-shadow:0 0 22px rgba(80,144,248,.2);transform:translateY(-3px);}
 
     /* Mobile nav */
     .mobile-toggle{display:none;width:48px;height:48px;border-radius:14px;border:1px solid rgba(80,144,248,.28);background:rgba(80,144,248,.06);color:#fff;cursor:none;position:relative;}
@@ -183,7 +183,7 @@
     }
     /* Text block — left-aligned, constrained to the empty left portion of the desktop visual */
     .hero-inner{position:relative;z-index:1;max-width:50%;margin:0;}
-    .hero-tag{display:inline-flex;align-items:center;gap:9px;padding:6px 16px;border-radius:99px;border:1px solid rgba(80,144,248,.28);background:rgba(80,144,248,.07);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue2);margin-bottom:28px;}
+    .hero-tag{display:inline-flex;align-items:center;gap:9px;padding:6px 16px;border-radius:99px;border:1px solid rgba(80,144,248,.28);background:rgba(80,144,248,.07);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue2);margin-bottom:28px;white-space:nowrap;}
     .hero-tag span{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:pulse 2s ease-in-out infinite;}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.8)}}
     .hero h1{font-family:"Syne",sans-serif;font-size:clamp(2.8rem,6.5vw,5.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.06;max-width:900px;margin-bottom:26px;text-wrap:balance;}
@@ -211,11 +211,11 @@
 
     h1,h2,h3{font-family:"Syne",sans-serif;}
     /* SECTIONS */
-    .section{padding:clamp(72px,9vw,130px) 24px;max-width:var(--max);margin:0 auto;}
+    .section{padding:clamp(40px,5.5vw,72px) 24px;max-width:var(--max);margin:0 auto;}
     .section-label{font-family:"DM Sans",sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue2);margin-bottom:12px;}
     .section-title{font-family:"Syne",sans-serif;font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:16px;}
-    .section-sub{font-size:1.05rem;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:52px;}
-    .section-header{margin-bottom:52px;}
+    .section-sub{font-size:1.05rem;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:36px;}
+    .section-header{margin-bottom:40px;}
     .center{text-align:center;}.center .section-sub{margin-left:auto;margin-right:auto;}
 
     /* CARD / GLASSMORPHISM */
@@ -236,7 +236,7 @@
     /* STATS STRIP */
     .stats-strip{background:rgba(80,144,248,.04);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
     .stats-inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);}
-    .stat-item{padding:40px 24px;border-right:1px solid var(--line);text-align:center;}
+    .stat-item{padding:28px 24px;border-right:1px solid var(--line);text-align:center;}
     .stat-item:last-child{border-right:0;}
     .stat-num{font-family:"Syne",sans-serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;color:var(--blue);display:block;line-height:1;}
     .stat-label{font-size:.84rem;color:var(--muted);margin-top:8px;font-weight:500;}
@@ -276,7 +276,7 @@
 
     /* PROCESS STEPS */
     .process-list{display:flex;flex-direction:column;gap:0;}
-    .process-step{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid var(--line2);}
+    .process-step{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--line2);}
     .process-step:last-child{border-bottom:0;}
     .step-num{font-family:"Syne",sans-serif;font-size:2.8rem;font-weight:800;letter-spacing:-.04em;color:var(--blue);line-height:1;padding-top:4px;}
     .step-title{font-size:1.12rem;font-weight:700;margin-bottom:8px;}
@@ -302,7 +302,7 @@
     .form-select option{background:#0a1828;color:#fff;}
 
     /* FOOTER */
-    .footer{position:relative;border-top:1px solid var(--line);padding:72px 24px 36px;}
+    .footer{position:relative;border-top:1px solid var(--line);padding:56px 24px 32px;}
     .footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 5%,rgba(80,144,248,.45) 35%,rgba(124,91,246,.35) 65%,transparent 95%);}
     .footer-inner{max-width:var(--max);margin:0 auto;}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;}
@@ -320,6 +320,7 @@
 
     /* PAGES */
     .page{display:none;width:100%;}.page.active{display:block;width:100%;}
+    .page-top{padding-top:20px!important;}
 
     /* GSAP ANIMATION STARTERS */
     .fade-up{opacity:0;transform:translateY(36px);}
@@ -334,10 +335,11 @@
     .badge-violet{background:rgba(124,91,246,.12);border:1px solid rgba(124,91,246,.28);color:var(--violet2);}
 
     /* ABOUT GRID */
-    .about-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
-    .value-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-    .value-card{padding:28px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:var(--r-sm);}
-    .value-card h4{font-size:.95rem;font-weight:700;margin-bottom:8px;}
+    .about-split{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;}
+    .value-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+    .value-card{padding:24px;background:rgba(80,144,248,.06);border:1px solid rgba(80,144,248,.18);border-radius:var(--r-sm);transition:.22s ease;}
+    .value-card:hover{background:rgba(80,144,248,.1);border-color:rgba(80,144,248,.32);}
+    .value-card h4{font-size:.95rem;font-weight:800;margin-bottom:8px;color:#fff;}
     .value-card p{font-size:.85rem;color:var(--muted);line-height:1.6;}
     .highlight-num{font-family:"Syne",sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:800;letter-spacing:-.04em;color:var(--cyan);line-height:1;display:block;}
 
@@ -384,11 +386,12 @@
       .hero-inner{text-align:center;}
       .hero-sub{max-width:100%;}
       .hero-cta{justify-content:center;}
-      .hero-tag{margin-left:auto;margin-right:auto;}
+      .hero-tag{margin-left:auto;margin-right:auto;font-size:.6rem;letter-spacing:.03em;padding:5px 12px;}
       .footer-grid{grid-template-columns:1fr;}
       .footer-bottom{flex-direction:column;gap:16px;text-align:center;}
       .svc-feature-card{grid-template-columns:1fr!important;}
       .svc-feature-card .svc-visual{display:none!important;}
+      .about-split{gap:32px;}
     }
     @media(max-width:480px){
       .hero-cta{flex-direction:column;align-items:center;}
@@ -666,7 +669,7 @@
     </div>
 
     <!-- HOME CTA BANNER -->
-    <div style="padding:0 24px 100px;">
+    <div style="padding:0 24px 56px;">
       <div style="max-width:var(--max);margin:0 auto;background:var(--grad);border-radius:28px;padding:clamp(48px,6vw,80px) clamp(32px,5vw,80px);position:relative;overflow:hidden;">
         <div style="position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><circle cx=%22200%22 cy=%22200%22 r=%22180%22 fill=%22none%22 stroke=%22rgba(255,255,255,.06)%22 stroke-width=%221%22/><circle cx=%22200%22 cy=%22200%22 r=%22120%22 fill=%22none%22 stroke=%22rgba(255,255,255,.04)%22 stroke-width=%221%22/></svg>') right -60px center/500px no-repeat;pointer-events:none;"></div>
         <div style="position:relative;z-index:1;max-width:620px;">
@@ -685,7 +688,7 @@
   <!-- ═══════════════════════════════ ABOUT PAGE ═══════════════════════════════ -->
   <div id="page-about" class="page">
     <div style="height:var(--nav);"></div>
-    <div class="section">
+    <div class="section page-top">
       <div class="about-split fade-up">
         <div>
           <div class="section-label">Who We Are</div>
@@ -759,7 +762,7 @@
           <div class="process-step fade-up"><div class="step-num">04</div><div><div class="step-title">Grow & Optimise</div><p class="step-desc">We monitor, report, and continuously improve your digital presence every single month. You see the numbers.</p></div></div>
         </div>
       </div>
-      <div style="text-align:center;margin-top:52px;">
+      <div style="text-align:center;margin-top:36px;">
         <a href="#/contact" onclick="navigate('contact')" class="cta-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">Start Your Journey <svg style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
@@ -768,7 +771,7 @@
   <!-- ═══════════════════════════════ SERVICES PAGE ═══════════════════════════════ -->
   <div id="page-services" class="page">
     <div style="height:var(--nav);"></div>
-    <div class="section">
+    <div class="section page-top">
       <div class="section-header center">
         <div class="section-label fade-up">Our Services</div>
         <h1 class="section-title fade-up">The Full Digital Suite<br><span class="accent">for T&T Businesses</span></h1>
@@ -789,14 +792,61 @@
             </ul>
             <a href="#/website" onclick="navigate('website')" class="btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">Full Details <svg style="width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
-          <div class="svc-visual" style="background:var(--grad);border-radius:20px;height:280px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-            <svg style="width:120px;height:120px;opacity:.9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <div class="svc-visual" style="border-radius:16px;height:280px;overflow:hidden;background:#06101e;border:1px solid rgba(80,144,248,.2);display:flex;flex-direction:column;">
+            <!-- Browser chrome bar -->
+            <div style="background:#0d1e38;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(80,144,248,.12);flex-shrink:0;">
+              <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:block;"></span>
+              <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:block;"></span>
+              <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:block;"></span>
+              <div style="flex:1;background:rgba(255,255,255,.06);border-radius:6px;height:22px;margin-left:8px;display:flex;align-items:center;padding:0 10px;"><span style="font-size:.65rem;color:rgba(255,255,255,.4);">yourbusiness.com</span></div>
+            </div>
+            <!-- Mock page content -->
+            <div style="flex:1;padding:18px;display:flex;flex-direction:column;gap:10px;overflow:hidden;">
+              <div style="background:linear-gradient(90deg,rgba(80,144,248,.35) 0%,rgba(124,91,246,.25) 100%);border-radius:8px;height:56px;display:flex;align-items:center;padding:0 16px;gap:12px;">
+                <div style="width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,.15);"></div>
+                <div style="display:flex;flex-direction:column;gap:5px;"><div style="width:80px;height:7px;border-radius:3px;background:rgba(255,255,255,.6);"></div><div style="width:50px;height:5px;border-radius:3px;background:rgba(255,255,255,.3);"></div></div>
+                <div style="margin-left:auto;background:var(--blue);border-radius:5px;padding:5px 12px;font-size:.6rem;font-weight:700;color:#fff;">Get Started</div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+                <div style="background:rgba(80,144,248,.1);border:1px solid rgba(80,144,248,.15);border-radius:6px;height:52px;padding:10px;"><div style="width:60%;height:6px;border-radius:3px;background:rgba(255,255,255,.35);margin-bottom:6px;"></div><div style="width:80%;height:4px;border-radius:3px;background:rgba(255,255,255,.18);"></div></div>
+                <div style="background:rgba(124,91,246,.1);border:1px solid rgba(124,91,246,.15);border-radius:6px;height:52px;padding:10px;"><div style="width:55%;height:6px;border-radius:3px;background:rgba(255,255,255,.35);margin-bottom:6px;"></div><div style="width:70%;height:4px;border-radius:3px;background:rgba(255,255,255,.18);"></div></div>
+                <div style="background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.15);border-radius:6px;height:52px;padding:10px;"><div style="width:70%;height:6px;border-radius:3px;background:rgba(255,255,255,.35);margin-bottom:6px;"></div><div style="width:50%;height:4px;border-radius:3px;background:rgba(255,255,255,.18);"></div></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;padding:0 2px;">
+                <div style="height:5px;border-radius:3px;background:rgba(255,255,255,.12);width:100%;"></div>
+                <div style="height:5px;border-radius:3px;background:rgba(255,255,255,.09);width:85%;"></div>
+                <div style="height:5px;border-radius:3px;background:rgba(255,255,255,.07);width:70%;"></div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="card svc-feature-card fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
-          <div class="svc-visual" style="background:var(--grad-r);border-radius:20px;height:280px;display:flex;align-items:center;justify-content:center;">
-            <svg style="width:120px;height:120px;opacity:.9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <div class="svc-visual" style="border-radius:16px;height:280px;overflow:hidden;background:#06101e;border:1px solid rgba(124,91,246,.2);display:flex;flex-direction:column;position:relative;">
+            <!-- Map background grid -->
+            <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(124,91,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(124,91,246,.06) 1px,transparent 1px);background-size:28px 28px;"></div>
+            <!-- Map pins and search results overlay -->
+            <div style="position:relative;flex:1;display:flex;flex-direction:column;padding:16px;gap:10px;">
+              <div style="background:rgba(10,24,40,.92);backdrop-filter:blur(8px);border-radius:10px;padding:10px 12px;border:1px solid rgba(124,91,246,.2);display:flex;align-items:center;gap:8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(124,91,246,.8)" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <span style="font-size:.68rem;color:rgba(255,255,255,.5);">best [your service] in Trinidad</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:7px;">
+                <div style="background:rgba(10,24,40,.92);backdrop-filter:blur(8px);border-radius:9px;padding:11px 13px;border:1px solid rgba(28,211,102,.25);display:flex;align-items:center;gap:10px;">
+                  <div style="width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,#7c5bf6,#5090f8);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+                  <div style="flex:1;"><div style="font-size:.7rem;font-weight:700;color:#fff;">Your Business Name</div><div style="font-size:.6rem;color:rgba(255,255,255,.45);margin-top:2px;">Port of Spain, T&T</div></div>
+                  <div style="background:rgba(28,211,102,.15);border:1px solid rgba(28,211,102,.3);border-radius:4px;padding:2px 7px;font-size:.6rem;font-weight:700;color:#28c87a;">#1</div>
+                </div>
+                <div style="background:rgba(10,24,40,.75);border-radius:9px;padding:11px 13px;border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:10px;opacity:.7;">
+                  <div style="width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,.06);flex-shrink:0;"></div>
+                  <div style="flex:1;"><div style="width:70%;height:6px;background:rgba(255,255,255,.18);border-radius:3px;"></div><div style="width:50%;height:4px;background:rgba(255,255,255,.1);border-radius:3px;margin-top:5px;"></div></div>
+                </div>
+                <div style="background:rgba(10,24,40,.65);border-radius:9px;padding:11px 13px;border:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px;opacity:.45;">
+                  <div style="width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,.04);flex-shrink:0;"></div>
+                  <div style="flex:1;"><div style="width:60%;height:6px;background:rgba(255,255,255,.14);border-radius:3px;"></div><div style="width:40%;height:4px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:5px;"></div></div>
+                </div>
+              </div>
+            </div>
           </div>
           <div>
             <span class="badge badge-violet" style="margin-bottom:16px;">Local SEO</span>
@@ -818,8 +868,8 @@
   <!-- ═══════════════════════════════ PINPOINT PAGE ═══════════════════════════════ -->
   <div id="page-pinpoint" class="page">
     <div style="height:var(--nav);"></div>
-    <div class="section">
-      <div style="max-width:760px;margin-bottom:64px;">
+    <div class="section page-top">
+      <div style="max-width:760px;margin-bottom:48px;">
         <span class="badge badge-violet fade-up" style="margin-bottom:20px;">Pinpoint Local™</span>
         <h1 class="section-title fade-up">Dominate Local Search in <span class="accent">Trinidad & Tobago</span></h1>
         <p style="font-size:1.08rem;color:var(--muted);line-height:1.8;margin-bottom:32px;" class="fade-up">Our proprietary Pinpoint Local™ framework is specifically engineered for the T&T market. We don't use generic SEO templates. We use proven local strategies that put you on the map, literally.</p>
@@ -875,8 +925,8 @@
   <!-- ═══════════════════════════════ WEBSITE PAGE ═══════════════════════════════ -->
   <div id="page-website" class="page">
     <div style="height:var(--nav);"></div>
-    <div class="section">
-      <div style="max-width:760px;margin-bottom:64px;">
+    <div class="section page-top">
+      <div style="max-width:760px;margin-bottom:48px;">
         <span class="badge badge-blue fade-up" style="margin-bottom:20px;">Website Design</span>
         <h1 class="section-title fade-up">Websites That <span class="accent">Work as Hard as You Do</span></h1>
         <p style="font-size:1.08rem;color:var(--muted);line-height:1.8;margin-bottom:32px;" class="fade-up">Every website we build is custom-designed from scratch, with no page builders, no templates, no shortcuts. Just clean, fast code that converts visitors into customers.</p>
@@ -929,8 +979,8 @@
   <!-- ═══════════════════════════════ MAINTENANCE PAGE ═══════════════════════════════ -->
   <div id="page-maintenance" class="page">
     <div style="height:var(--nav);"></div>
-    <div class="section">
-      <div style="max-width:760px;margin-bottom:64px;">
+    <div class="section page-top">
+      <div style="max-width:760px;margin-bottom:48px;">
         <span class="badge fade-up" style="background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3);color:var(--cyan);margin-bottom:20px;">Monthly Maintenance</span>
         <h1 class="section-title fade-up">Your Website, <span class="accent">Always Performing</span></h1>
         <p style="font-size:1.08rem;color:var(--muted);line-height:1.8;" class="fade-up">A website is not a set-it-and-forget-it asset. It needs updates, security patches, speed optimisation, and content refreshes to stay competitive. That's exactly what our maintenance plans deliver, every single month.</p>
@@ -980,7 +1030,7 @@
   <!-- ═══════════════════════════════ CONTACT PAGE ═══════════════════════════════ -->
   <div id="page-contact" class="page">
     <div style="height:var(--nav);"></div>
-    <div class="section">
+    <div class="section page-top">
       <div class="grid-2" style="gap:64px;align-items:start;">
         <div>
           <div class="section-label fade-up">Get in Touch</div>
