@@ -2,26 +2,22 @@ name: Deploy to Vercel
 
 on:
   workflow_dispatch:
-    inputs:
-      vercel_token:
-        description: "Vercel access token (passed at dispatch time, never stored in the repo)"
-        required: true
-        type: string
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Mask token in logs
-        run: echo "::add-mask::${{ inputs.vercel_token }}"
-
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Deploy to Vercel (production)
         env:
-          VERCEL_TOKEN: ${{ inputs.vercel_token }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::VERCEL_TOKEN secret is not set. Add it in Settings > Secrets and variables > Actions."
+            exit 1
+          fi
           DEPLOY_URL=$(npx vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN" 2>deploy-err.log) || {
             echo "Deploy failed:"; cat deploy-err.log; exit 1;
           }
