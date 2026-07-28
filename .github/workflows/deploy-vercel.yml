@@ -24,6 +24,13 @@ jobs:
           DEPLOY_URL=$(npx vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN" 2>deploy-err.log) || {
             echo "Deploy failed:"; cat deploy-err.log; exit 1;
           }
-          echo "Production URL: $DEPLOY_URL"
+          echo "Deployment URL: $DEPLOY_URL"
           echo "### Deployed to Vercel :rocket:" >> "$GITHUB_STEP_SUMMARY"
-          echo "**Production URL:** $DEPLOY_URL" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Deployment URL:** $DEPLOY_URL" >> "$GITHUB_STEP_SUMMARY"
+
+          # Report the project's shareable domains (aliases), which are cleaner
+          # than the per-deployment hash URL and stay stable across deploys.
+          echo "--- Project domains ---"
+          npx vercel@latest inspect "$DEPLOY_URL" --token "$VERCEL_TOKEN" 2>&1 | grep -iA10 "aliases" || true
+          echo "--- All domains on this account ---"
+          npx vercel@latest domains ls --token "$VERCEL_TOKEN" 2>&1 | tail -20 || true
