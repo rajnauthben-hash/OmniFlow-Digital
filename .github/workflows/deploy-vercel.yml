@@ -46,8 +46,11 @@ jobs:
           DEPLOY_URL=$(npx --yes "$VERCEL_CLI" deploy --prod --yes --token "$VERCEL_TOKEN" 2>deploy-err.log) || {
             echo "::error::Vercel deploy failed. Output below."
             cat deploy-err.log
-            if grep -qi "no teams available\|not authorized\|invalid token\|forbidden" deploy-err.log; then
-              echo "::error::The Vercel token appears to be expired or revoked. Create a new one at https://vercel.com/account/tokens and update the VERCEL repository secret."
+            # Confirmed cause: the token authenticates (whoami succeeds) but has
+            # no access to the scope that owns the project, so the CLI dies while
+            # loading scopes. Not an expiry problem.
+            if grep -qi "no teams available\|not authorized\|loading scopes\|reading 'value'" deploy-err.log; then
+              echo "::error::The Vercel token is valid but lacks access to the scope that owns this project (ttpinpoint-6876s-projects). Create a token at https://vercel.com/account/tokens with that scope selected, then update the VERCEL repository secret."
             fi
             exit 1
           }
