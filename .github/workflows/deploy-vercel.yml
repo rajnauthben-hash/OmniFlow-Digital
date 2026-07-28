@@ -6,6 +6,12 @@ on:
     branches:
       - claude/premium-website-iu-ux-72a7bv
 
+env:
+  # Pinned deliberately. `vercel@latest` silently upgraded mid-project and
+  # changed scope-resolution behaviour, which broke deploys with
+  # "No teams available". Bump this only on purpose.
+  VERCEL_CLI: vercel@48.1.6
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,24 +19,43 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy to Vercel (production)
+      - name: Check Vercel credentials
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL != '' && secrets.VERCEL || secrets.VERCEL_TOKEN }}
         run: |
           if [ -z "$VERCEL_TOKEN" ]; then
-            echo "::error::No Vercel token found. Add a repository secret named VERCEL or VERCEL_TOKEN in Settings > Secrets and variables > Actions."
+            echo "::error::No Vercel token found. Add a repository secret named VERCEL or VERCEL_TOKEN under Settings > Secrets and variables > Actions."
             exit 1
           fi
-          DEPLOY_URL=$(npx vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN" 2>deploy-err.log) || {
-            echo "Deploy failed:"; cat deploy-err.log; exit 1;
+          set +e
+          echo "::group::whoami"
+          npx --yes "$VERCEL_CLI" whoami --token "$VERCEL_TOKEN" 2>&1; echo "exit=$?"
+          echo "::endgroup::"
+          echo "::group::teams"
+          npx --yes "$VERCEL_CLI" teams ls --token "$VERCEL_TOKEN" 2>&1; echo "exit=$?"
+          echo "::endgroup::"
+          echo "::group::projects"
+          npx --yes "$VERCEL_CLI" project ls --token "$VERCEL_TOKEN" 2>&1; echo "exit=$?"
+          echo "::endgroup::"
+          exit 0
+
+      - name: Deploy to Vercel (production)
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL != '' && secrets.VERCEL || secrets.VERCEL_TOKEN }}
+        run: |
+          DEPLOY_URL=$(npx --yes "$VERCEL_CLI" deploy --prod --yes --token "$VERCEL_TOKEN" 2>deploy-err.log) || {
+            echo "::error::Vercel deploy failed. Output below."
+            cat deploy-err.log
+            if grep -qi "no teams available\|not authorized\|invalid token\|forbidden" deploy-err.log; then
+              echo "::error::The Vercel token appears to be expired or revoked. Create a new one at https://vercel.com/account/tokens and update the VERCEL repository secret."
+            fi
+            exit 1
           }
           echo "Deployment URL: $DEPLOY_URL"
           echo "### Deployed to Vercel :rocket:" >> "$GITHUB_STEP_SUMMARY"
           echo "**Deployment URL:** $DEPLOY_URL" >> "$GITHUB_STEP_SUMMARY"
 
-          # Report the project's shareable domains (aliases), which are cleaner
-          # than the per-deployment hash URL and stay stable across deploys.
-          echo "--- Project domains ---"
-          npx vercel@latest inspect "$DEPLOY_URL" --token "$VERCEL_TOKEN" 2>&1 | grep -iA10 "aliases" || true
-          echo "--- All domains on this account ---"
-          npx vercel@latest domains ls --token "$VERCEL_TOKEN" 2>&1 | tail -20 || true
+          # Stable aliases are nicer to share than the per-deployment hash URL.
+          echo "::group::Project aliases"
+          npx --yes "$VERCEL_CLI" inspect "$DEPLOY_URL" --token "$VERCEL_TOKEN" 2>&1 | grep -iA10 "alias" || true
+          echo "::endgroup::"
